@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/1666b964a0.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+	{% block headblock %}
+	{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="z-index: 0;background-color: #374785;background: #374785;border-color:#374785 ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/home"style="color: #f1f1f1">Home</a></li>
+            <li><a href="/profile" style="color: #f1f1f1">My Profile</a></li>
+            <li><a href="/editprofile" style="color: #f1f1f1">Edit Profile</a></li>
+            <li><a href="/createpage" style="color: #f1f1f1">Create Font</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+                <li><a href="/changepassword" style="color: #f1f1f1">Change Password</a></li>
+                <li><a href="/logout" style="color: #f1f1f1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            {%else%}
+                <li><a href="/signup" style="color: #f1f1f1"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+                <li><a href="/login" style="color: #f1f1f1">Login</a></li>
+            {% endif %}
+            &nbsp;&nbsp;
+        </ul>
+        </div>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

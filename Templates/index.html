@@ -1,0 +1,71 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
+		<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+	    <link rel="stylesheet" href="{% static 'CSS/responsive.css' %}">
+	    <link rel="stylesheet" href="{% static 'CSS/jquery.mCustomScrollbar.min.css' %}">
+	    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+		{% block headblock %}
+		{% endblock %}
+
+	</head>
+
+	<body class="img js-fullheight" style="background-image: url({%static 'images/bg.jpg'%});">
+		{% block gif %}
+		{% endblock %}
+		<header>
+        <!--  header inner -->
+         	<div class="header">
+            	<div class="container">
+               		<div class="row">
+                  		<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                    	 	<div class="full">
+                        		<div class="center-desk">
+                           			<div class="logo">
+                              			<a href="/home"><h1 style="color:#ffffff;">SCRIPTLIZER</h1></a>
+                           			</div>
+                        		</div>
+                     		</div>
+                  		</div>
+                  		<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     		<nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        			<span class="navbar-toggler-icon"></span>
+                        		</button>
+                        		<div class="collapse navbar-collapse" id="navbarsExample04">
+                           			<ul class="navbar-nav mr-auto">
+                              			{% block navblock %}
+										{% endblock %}
+                           			</ul>
+                        		</div>
+                     		</nav>
+                  		</div>
+               		</div>
+            	</div>
+         	</div>
+      	</header> 
+		<section class="ftco-section">
+			<div class="container2">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</section>
+
+		<script src="{% static 'JS/jquery.min.js' %}"></script>
+  		<script src="{% static 'JS/popper.js' %}"></script>
+  		<script src="{% static 'JS/bootstrap.min.js' %}"></script>
+  		<script src="{% static 'JS/main.js' %}"></script>
+	</body>
+</html>
+

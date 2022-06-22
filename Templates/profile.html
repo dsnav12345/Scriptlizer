@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block headblock %}	
+	<link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+	<title>My Profile</title>
+{% endblock %}
+
+{% block navblock %}
+    <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/profile">My Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/editprofile">Edit Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/createfont">Create Font</a>
+    </li>
+	<li class="nav-item">
+		<a href="/changepassword" class="nav-link">Change Password</a>
+	</li>
+	<li class="nav-item">
+		<a href="/logout" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+	</li>
+    {%else%}
+	<li class="nav-item">
+		<a href="/login" class="nav-link">Login</a>
+	</li>
+	<li class="nav-item">
+		<a href="/signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Signup</a>
+	</li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+	<div class="profile">
+		<div class="left">
+			{% if user.pic %}
+			<img src={{user.pic.url}} alt="USER" width="200">
+			{% else %}
+			<img src="{% static 'blankprof.png' %}" alt="USER" width="200">
+			{% endif %}
+			<h4>{{user.fisrt_name}} {{user.last_name}}</h4>
+			<p>{{user.username}}</p>
+			
+		</div>
+		<div class="right">
+			<div class="info">
+			<h3>information</h3>
+			<div class="info_data">
+				<div class="data">
+					<h4>Firstname</h4>
+					<p>{{user.first_name}}</p>
+				</div>
+				<div class="data">
+					<h4>lastname</h4>
+					<p>{{user.last_name}}</p>
+				</div>
+				<div class="data">
+					<h4>Username</h4>
+					<p>{{user.username}}</p>
+				</div>
+				<div class="data">
+					<h4>Email</h4>
+					<p>{{user.email}}</p>
+				</div>
+				<div class="data">
+					<h4>Phone</h4>
+					<p>{{user.mobile}}</p>
+				</div>
+
+			</div>
+			
+		</div>
+		
+		</div>
+	</div>
+{% endblock %}

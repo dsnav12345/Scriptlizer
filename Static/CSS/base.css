@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;500&display=swap');
+.navbar {
+	z-index: 1;
+	position: fixed;
+	top:0px;
+	width: 70%;
+	left: 15%; 
+}
+*{
+	font-family: 'Josefin Sans', sans-serif;
+}
+.column {
+	float: left;
+	width: 33.33%;
+	padding: 5px;
+}/*
+.back{
+	height: 100%;
+	width: 100%;
+	background-image: url("bg1.jpg");
+	background-position: middle;
+	background-size: contain;
+	background-repeat : no-repeat;
+	position: absolute;
+}*/
+section{
+	width: 100%;
+	margin:auto;
+	/*background-image: url("bg1.jpg");
+	background-attachment : fixed;
+	background-size : 100%;*/
+	padding: 60px;
+}
+.button {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 20px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #0b5de2;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+}
+
+.button:hover {
+	background-color: #0b387f
+}
+
+.button:active {
+	background-color: #0b387f;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+.card {
+  /* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+	padding: 2px 16px;
+}
+.catnav{
+	display : block;
+}
+.catul{
+	position: absolute;
+	top: 150px;
+	position: fixed;
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	width: 14%;
+	background-color: #374785;
+}
+
+.catul li{
+	text-align: center;
+}
+
+.catul li a{
+	display: block;
+	padding: 8px;
+	text-decoration : none;
+}
+.messages{
+	width : 70%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top : 60px;
+	align-self : center;
+}

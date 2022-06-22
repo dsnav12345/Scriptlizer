@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{%  extends 'index.html'%}
+{% load static %}
+{% block headblock %}
+	<title>Login</title>
+{% endblock %}
+
+
+{% block navblock %}
+    <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="/profile">My Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/editprofile">Edit Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/createfont">Create Font</a>
+    </li>
+	<li class="nav-item">
+		<a href="/changepassword" class="nav-link">Change Password</a>
+	</li>
+	<li class="nav-item">
+		<a href="/logout" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+	</li>
+    {%else%}
+	<li class="nav-item active">
+		<a href="/login" class="nav-link">Login</a>
+	</li>
+	<li class="nav-item">
+		<a href="/signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Signup</a>
+	</li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+	<div class="row justify-content-center">
+		<div class="col-md-6 text-center mb-5">
+			<h2 class="heading-section">Login</h2>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-lg-4">
+			<div class="login-wrap p-0">
+				<h3 class="mb-4 text-center">Have an account?</h3>
+				<form action="login" method="POST" class="signin-form">
+					{% csrf_token %}
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Username" name="username" required>
+					</div>
+					<div class="form-group">
+						<input id="pswd" name="password" type="password" class="form-control" placeholder="Password" required>
+						<span toggle="#pswd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="form-control btn btn-primary submit px-3">Login</button>
+					</div>
+				</form>
+				{% for message in messages%}
+					<h3 style='font-weight:bold;'>{{message}}</h3>
+				{% endfor%}
+			</div>
+		</div>
+	</div>
+<!--    <div class="box">
+		<div class="login">
+			<div id="in"></div>
+			<button type="button" class="button">Login</button>
+		</div>
+		<form class="input", method="POST", action="login">
+			{%csrf_token%}
+			<input type="text" name="username" class="details" placeholder="username" required>
+			<input type="password" name="password" class="details" placeholder="password" required>
+			<button type="submit" class="submitbutton">Login</button>
+		</form>
+	</div>-->
+
+{% endblock %}

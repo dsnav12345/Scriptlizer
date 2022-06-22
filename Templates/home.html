@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headblock %}
+    <title>Scriptlizer</title>
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+<!--    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+    <script language="javascript">
+        function setFont(strurl){
+            var root=document.documentElement
+            root.style.setProperty('--furl', strurl);
+            return false;
+        }
+        window.onload=function setFont({{font}})
+    </script>-->
+{% endblock %}
+
+
+{% block navblock %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/home">Home</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="/profile">My Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/editprofile">Edit Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/createfont">Create Font</a>
+    </li>
+	<li class="nav-item">
+		<a href="/changepassword" class="nav-link">Change Password</a>
+	</li>
+	<li class="nav-item">
+		<a href="/logout" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+	</li>
+    {%else%}
+	<li class="nav-item">
+		<a href="/login" class="nav-link">Login</a>
+	</li>
+	<li class="nav-item">
+		<a href="/signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Signup</a>
+	</li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        {% if user.is_authenticated %}
+        <a href="{{font}}" style="width:50%;" download><button class="form-control btn btn-primary submit px-3">Download Your Font</button>
+        {% endif %}
+        <h3></h3>
+        {% for message in messages%}
+            <h3 style='font-weight:bold;'>{{message}}</h3>
+        {% endfor%}
+        <form action="#" id="f1" class="signin-form">
+            {{form.media}}
+            {% for field in form.visible_fields %}
+                {% render_field field class="form-control" id="k1" placeholder=""%}
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

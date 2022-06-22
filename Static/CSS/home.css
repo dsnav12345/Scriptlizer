@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'YourFont';
+	src: url('../dsnav.ttf');
+}
+
+.cke_editable {	
+	background:rgba(204, 76, 140, 0.5);
+}
